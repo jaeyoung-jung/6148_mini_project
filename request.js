@@ -10,7 +10,7 @@ update=function(){$.ajax({
         result='';
         for (i in json.data) {
             //console.log();
-            result += handleComment(json.data[i]);
+            result = handleComment(json.data[i]) + result;
         }
         $("#comments").html(result);
     })
