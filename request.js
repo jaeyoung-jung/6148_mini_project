@@ -17,7 +17,7 @@ $.ajax({
         $(".comments").html('<p class="error">Error: Unable to connect to comment.php</p>');
     });
 function handleComment(comment) {
-    return '<div><div class="name"> Posted by' + name + ':</div><div class="comment">' + comment + '</div></div>';
+    return '<div class="ui raised segment"><h4 class="ui header"> Posted by: ' + name + '</h4><p class="comment">' + comment + '</p></div>';
 }
 
 function submitComment() {
