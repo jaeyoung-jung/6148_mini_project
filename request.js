@@ -7,13 +7,13 @@ $.ajax({
 })
     .done(function(json) {
         console.log(json.data)
-        for i in json.data {
-            result += handleComment(i.data)
+        for (i in json.data) {
+            result += handleComment(i.comment)
         }
-        $.(".comments").html() = result
-    }
+        $(".comments").html() = result
+    })
     .fail(function() {
-        $.(".comments").html() = '<p class="error">Error: Unable to connect to comment.php</p>';
+        $(".comments").html('<p class="error">Error: Unable to connect to comment.php</p>');
     });
 function handleComment() {
     //To Do
@@ -21,9 +21,9 @@ function handleComment() {
 
 function submitComment() {
     commentData = {
-        comment : $.("#submit").html(),
+        comment : $("#submit").html(),
     }
-    console.log($.("#submit").html());
+    console.log($("#submit").html());
     $.ajax({
         method : 'POST',
         data : commentData,
