@@ -1,4 +1,4 @@
-[<?php
+{"data":[<?php
 	include("db.php");
 	$results=$collection->find();
 	$array=array();
@@ -6,4 +6,4 @@
 		$array[]=json_encode($datum);
 	}
 	echo implode(",",$array);
-?>]
+?>]}

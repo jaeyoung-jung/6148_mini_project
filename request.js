@@ -2,7 +2,7 @@ $.ajax({
     method : 'GET',
     data : {},
     dataType : "json",
-    url: "comment.php",
+    url: "viewcomments.php",
     cache: false,
 })
     .done(function(json) {
@@ -28,6 +28,6 @@ function submitComment() {
         method : 'POST',
         data : commentData,
         dataType : "json",
-        url: "comment.php",
+        url: "addcomment.php",
     })
 }
