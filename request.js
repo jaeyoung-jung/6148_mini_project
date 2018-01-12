@@ -24,11 +24,14 @@ function handleComment(i) {
 function submitComment() {
     console.log("HI");
     commentData = {
-        name : "Anon",
-        email : "Anon@boards.4chan.org",
+        name : $("#name").val() || "Anon",
+        email : $("#email").val() || "Anon@boards.4chan.org",
         comment : $("#submit").val(),
     };
-    console.log($("#submit").val());
+    console.log(commentData);
+    //console.log($("#submit").val());
+    $("#name").val("");
+    $("#email").val("");
     $("#submit").val("");
     $.ajax({
         method : 'POST',
