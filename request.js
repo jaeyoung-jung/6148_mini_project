@@ -6,11 +6,12 @@ $.ajax({
     cache: false,
 })
     .done(function(json) {
-        console.log(json.data)
+        console.log(json.data);
+        result='';
         for (i in json.data) {
-            result += handleComment(i.comment)
+            result += handleComment(i.comment);
         }
-        $(".comments").html() = result
+        $(".comments").html(result);
     })
     .fail(function() {
         $(".comments").html('<p class="error">Error: Unable to connect to comment.php</p>');
@@ -20,6 +21,7 @@ function handleComment() {
 }
 
 function submitComment() {
+    console.log("HI");
     commentData = {
         comment : $("#submit").html(),
     }
@@ -29,5 +31,5 @@ function submitComment() {
         data : commentData,
         dataType : "json",
         url: "addcomment.php",
-    })
+    }).done(console.log).fail(console.log);
 }
