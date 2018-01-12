@@ -11,13 +11,13 @@ $.ajax({
         for (i in json.data) {
             result += handleComment(i);
         }
-        $(".comments").html(result);
+        $("#comments").html(result);
     })
     .fail(function() {
-        $(".comments").html('<p class="error">Error: Unable to connect to comment.php</p>');
+        $("#comments").html('<div class="ui error message"><h4 class="ui header">There was an error connecting to the PHP server.</h4><p>Contact a Network Adminstrator if this problem persists.</p></div>');
     });
 function handleComment(comment) {
-    return '<div class="ui raised segment"><h4 class="ui header"> Posted by: ' + name + '</h4><p class="comment">' + comment + '</p></div>';
+    return '<div class="ui raised segment"><h4 class="ui header"> Posted by: ' + name + '</h4><p>' + comment + '</p></div>';
 }
 
 function submitComment() {
