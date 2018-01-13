@@ -1,7 +1,10 @@
-angular.module('todoApp', [])
+console.log(angular)
+angular.module('requestApp', [])
     .controller('requestController', function() {
         this.loaded = "";
         this.failed = "hidden";
+        this.comments = [];
+        console.log("HI");
         this.update = function() {
             $.ajax({
                 method : 'GET',
@@ -13,7 +16,7 @@ angular.module('todoApp', [])
             .done(function(json) {
                 const data = json.data;
                 console.log(data);
-                for (i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {
                     data[i].url = data[i].email ? '<a href="mailto:{{data.email}}">{{data.name}}</a>' : '{{data.name}}';
                 }
                 this.comments = json.data;
@@ -27,7 +30,7 @@ angular.module('todoApp', [])
         }
         this.update();
         window.setInterval(this.update, 5000);
-        this.submitComment() {
+        this.submitComment = function() {
             commentData = {
                 name : this.name || "Anon",
                 email : this.email,
