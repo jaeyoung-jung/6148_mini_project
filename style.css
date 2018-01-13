@@ -17,3 +17,6 @@ h1.header {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.hidden {
+    display : none;
+}

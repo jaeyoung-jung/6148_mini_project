@@ -1,11 +1,12 @@
-console.log(angular)
+console.log("What")
 angular.module('requestApp', [])
     .controller('requestController', function() {
-        this.loaded = "";
-        this.failed = "hidden";
-        this.comments = [];
-        console.log("HI");
-        this.update = function() {
+        var request = this;
+        request.loaded = "";
+        request.failed = "hidden";
+        request.comments = [];
+        request.halp = "ui header";
+        request.update = function() {
             $.ajax({
                 method : 'GET',
                 data : {},
@@ -15,31 +16,31 @@ angular.module('requestApp', [])
             })
             .done(function(json) {
                 const data = json.data;
-                console.log(data);
                 for (let i = 0; i < data.length; i++) {
                     data[i].url = data[i].email ? '<a href="mailto:{{data.email}}">{{data.name}}</a>' : '{{data.name}}';
                 }
-                this.comments = json.data;
+                console.log(data);
+                request.comments = data;
             })
             .fail(function() {
-                this.failed = "";
+                request.failed = "";
             })
             .always(function() {
-                this.loaded = "hidden";
+                request.loaded = "hidden";
             });
         }
-        this.update();
-        window.setInterval(this.update, 5000);
-        this.submitComment = function() {
+        request.update();
+        window.setInterval(request.update, 5000);
+        request.submitComment = function() {
             commentData = {
-                name : this.name || "Anon",
-                email : this.email,
-                comment : this.comment,
+                name : request.name || "Anon",
+                email : request.email,
+                comment : request.comment,
             };
             console.log(commentData);
-            this.name = "";
-            this.email = "";
-            this.comment = "";
+            request.name = "";
+            request.email = "";
+            request.comment = "";
             $.ajax({
                 method : 'POST',
                 data : commentData,

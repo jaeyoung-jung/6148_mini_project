@@ -7,15 +7,15 @@
         <link rel="stylesheet" href="./style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script src="./request.js"></script>
     </head>
     <body>
         <div id="bg" ng-controller="requestController as request">
-            <h1 class="ui header">
+            <h1 class="{{request.halp}}" >
                 Our Website!
             </h1>
-            <h2 class="ui header">
+            <h2 class="{{request.halp}}">
                 Comments...
             </h2>
             <div class="ui input">
@@ -26,10 +26,10 @@
                     Submit
                 </button>
             </div>
-            <div class="ui segment" {{request.loaded}}> 
+            <div class="ui segment {{request.loaded}}">
                 <p>Loading comments... Please wait...</p>
             </div>
-            <div class="ui error message" {{request.failure}}>
+            <div class="ui error message {{request.failure}}">
                 <h4 class="ui header">
                     There was an error connecting to the PHP server.
                 </h4>
