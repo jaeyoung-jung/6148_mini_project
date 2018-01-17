@@ -1,9 +1,11 @@
 <?php
-	require 'vendor/autoload.php';
-	define("DB_USER","php");
-	define("DB_PASSWORD","redvelvet20");
-	define("DB_URL","mongodb://".DB_USER.":".DB_PASSWORD."@ds161823.mlab.com:61823/mini_project");
+	define("DB_USER","jungj");
+	define("DB_PASSWORD","Cp7oEAxc8BAzrioPB2ijz3StP");
+	define("DB_URL","sql.mit.edu");
+	define("DB_NAME","jungj+test");
 
-	$client=new MongoDB\Client(DB_URL);
-	$collection=$client->mini_project->collection;
+	//echo "mysql:host=".DB_URL.";dbname=jungj+".$dbname;
+	$db=new PDO("mysql:host=".DB_URL.";dbname=".DB_NAME,DB_USER,DB_PASSWORD);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	//var_dump($db);
 ?>
